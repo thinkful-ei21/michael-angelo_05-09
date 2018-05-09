@@ -229,8 +229,22 @@ let myObj = {
 
 function objectLoop(obj) {
   for (let key in obj) {
-    console.log(obj[key]);
+ //   console.log(obj[key]);
   }
 }
 
 objectLoop(myObj);
+
+/*
+Create an object with a property called meals which is an array of strings: 
+'breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper'.
+Use console.log to show the name of a hobbit's fourth meal of the day.
+Don't forget that humans and hobbits count from 1, but computers count from 0.
+*/
+
+const meal = {
+  meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
+};
+
+// console.log(meal.meals[3]);
+
