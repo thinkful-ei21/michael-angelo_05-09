@@ -325,3 +325,37 @@ function addOwner(arr) {
 }
 
 // addOwner(people2);
+
+const cipher = { 
+  message: 'craft block argon meter bells brown croon droop'
+}
+
+function decodeWords(msg) {
+  let arr = cipher.message.split(' ');
+  decode(arr);
+}
+
+function decode(message){  
+  let result = [];  
+  for(let i=0; i < message.length;i++){    
+    switch(message[i].split('')[0]){
+      case 'a':
+        result.push(message[i].split('')[1]);
+        break;
+      case 'b':
+        result.push(message[i].split('')[2]);
+        break;
+      case 'c':
+        result.push(message[i].split('')[3]);
+        break;
+      case 'd':
+        result.push(message[i].split('')[4]);
+        break;
+      default:
+        result.push(' ');
+    }
+  }
+  console.log(result.join(''));
+}
+
+decodeWords(cipher);
