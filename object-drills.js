@@ -157,26 +157,43 @@ const objectB = {
 
 const expectedKeys = ['id', 'name', 'age', 'city'];
 
-function validateKeys(object, expectedKeys) {
-  let match = false;
+// function validateKeys(object, expectedKeys) {
+//   let match = false;
 
-  if (Object.keys(object).length === expectedKeys.length) {
-    compareKeys(Object.keys(object), expectedKeys);
+//   if (Object.keys(object).length === expectedKeys.length) {
+//     compareKeys(Object.keys(object), expectedKeys);
+//   } 
+  
+//   function compareKeys (obj, keys) {
+//     for (let i = 0; i < obj.length; i++) {
+//       for (let j = 0; j < keys.length; j++) {
+//         if (obj[i].indexOf(keys[j]) >= 0) {
+//           match = true;
+//         } else {
+//           match = false;
+//         }
+//       }
+//     }
+//   }
+//   console.log(match);
+// }
+
+// validateKeys(objectA, expectedKeys);
+// validateKeys(objectB, expectedKeys);
+
+// Or
+function validateKeys(object, expectedKeys) {
+  
+  if (Object.keys(object).length !== expectedKeys.length) {
+    return false;
   } 
   
-  function compareKeys (obj, keys) {
-    for (let i = 0; i < obj.length; i++) {
-      for (let j = 0; j < keys.length; j++) {
-        if (obj[i].indexOf(keys[j]) >= 0) {
-          match = true;
-        } else {
-          match = false;
-        }
-      }
+  // iterate over each expected key and verify that it's found in `object`.
+  for (let i = 0; i < expectedKeys.length; i++) {
+    if (!Object.keys(object).find(key => key === expectedKeys[i])) {
+      return false;
     }
   }
-  console.log(match);
+  
+  return true;
 }
-
-validateKeys(objectA, expectedKeys);
-validateKeys(objectB, expectedKeys);
