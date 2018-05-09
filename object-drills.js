@@ -85,4 +85,31 @@ const data = [
   { name: 'John Dough', grade: 'B' },
   { name: 'Jill Do', grade: 'A' },
 ];
-console.log(makeStudentReport(data));
+// console.log(makeStudentReport(data));
+
+function enrollInSummerSchool(students) {
+  students.forEach(function (student) {
+    student.status = 'In Summer school';
+  });
+  return students;
+};
+
+const studentData = [
+  {
+    name: 'Tim',
+    status: 'Current student',
+    course: 'Biology',
+  },
+  {
+    name: 'Sue',
+    status: 'Withdrawn',
+    course: 'Mathematics',
+  },
+  {
+    name: 'Liz',
+    status: 'On leave',
+    course: 'Computer science',
+  },
+];
+
+// console.log(enrollInSummerSchool(studentData));
