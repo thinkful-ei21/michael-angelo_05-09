@@ -278,3 +278,50 @@ function showInfo(arr) {
 }
 
 // showInfo(people);
+
+/*
+
+Expand on the previous example by adding a boss property to everyone except the owner of the company.
+Change the iteration to print out messages in this format: "${title} ${name} reports to ${boss}.". 
+For example: Junior Engineer Bob reports to Fred..
+What gets printed out for the owner?
+Adjust the message so that people with no boss display "${title} ${name} doesn't report to anybody." 
+- for example, Founder John doesn't report to anybody.
+*/
+
+
+let people2 = [
+  { 
+    name: 'bill', 
+    jobTitle: 'owner'
+  },
+  { 
+    name: 'steven',
+    jobTitle: 'painter'
+  },
+  {
+    name: 'william',
+    jobTitle: 'drawing'
+  } ,
+  {
+    name: 'josh',
+    jobTitle: 'baseball'
+  },
+  {
+    name: 'tarren',
+    jobTitle: 'plays fortnite'
+  }
+]
+
+function addOwner(arr) {
+  arr.forEach(function(item) {
+    if(item.jobTitle !== 'owner') {
+      item.boss = 'bill';
+      console.log(`${item.jobTitle} ${item.name} reports to ${item.boss}`);
+    } else {
+      console.log(`${item.jobTitle} ${item.name} doesn't report to anybody`);
+    }
+  });
+}
+
+// addOwner(people2);
