@@ -248,3 +248,33 @@ const meal = {
 
 // console.log(meal.meals[3]);
 
+let people = [
+  { 
+    name: 'bill', 
+    jobTitle: 'builder'
+  },
+  { 
+    name: 'steven',
+    jobTitle: 'painter'
+  },
+  {
+    name: 'william',
+    jobTitle: 'drawing'
+  } ,
+  {
+    name: 'josh',
+    jobTitle: 'baseball'
+  },
+  {
+    name: 'tarren',
+    jobTitle: 'plays fortnite'
+  }
+]
+
+function showInfo(arr) {
+  arr.forEach(function (item) {
+    console.log(`${item.name}: ${item.jobTitle}`);
+  });
+}
+
+// showInfo(people);
