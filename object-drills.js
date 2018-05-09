@@ -60,3 +60,29 @@ var sampleObj = {
 }
 
 // console.log(keyDeleter(sampleObj));
+
+/*
+a function called makeStudentReport that takes a single argument, data. 
+data is an array of objects. Each object in the array represents a 
+student and their letter grade for a course — 
+for example, {name: 'Johnny Robot', grade: 'C'}.
+akeStudentReport should return an array of strings. 
+For each item in data, 
+return a string that looks like this: '[name]: [grade]'.
+*/
+function makeStudentReport(data) {
+  let newArr = [];
+  // for(let i=0; i<data.length; i++) {
+  //   newArr.push(`${data[i].name}: ${data[i].grade}`);
+  // }
+  data.forEach(key => 
+    newArr.push(`${key.name}: ${key.grade}`));
+  return newArr;
+}
+
+const data = [
+  { name: 'Jane Doe', grade: 'A' },
+  { name: 'John Dough', grade: 'B' },
+  { name: 'Jill Do', grade: 'A' },
+];
+console.log(makeStudentReport(data));
