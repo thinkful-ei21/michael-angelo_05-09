@@ -217,3 +217,20 @@ const loaf = {
 };
 // console.log(loaf.hydration());
 
+let myObj = {
+  'foo': 424,
+  'bar': 'asdfaf',
+  'fum': 5,
+  'quuz': true,
+  'spam': function () {
+    return false;
+  }
+}
+
+function objectLoop(obj) {
+  for (let key in obj) {
+    console.log(obj[key]);
+  }
+}
+
+objectLoop(myObj);
