@@ -229,7 +229,7 @@ let myObj = {
 
 function objectLoop(obj) {
   for (let key in obj) {
- //   console.log(obj[key]);
+    //   console.log(obj[key]);
   }
 }
 
@@ -339,23 +339,76 @@ function decode(message){
   let result = [];  
   for(let i=0; i < message.length;i++){    
     switch(message[i].split('')[0]){
-      case 'a':
-        result.push(message[i].split('')[1]);
-        break;
-      case 'b':
-        result.push(message[i].split('')[2]);
-        break;
-      case 'c':
-        result.push(message[i].split('')[3]);
-        break;
-      case 'd':
-        result.push(message[i].split('')[4]);
-        break;
-      default:
-        result.push(' ');
+    case 'a':
+      result.push(message[i].split('')[1]);
+      break;
+    case 'b':
+      result.push(message[i].split('')[2]);
+      break;
+    case 'c':
+      result.push(message[i].split('')[3]);
+      break;
+    case 'd':
+      result.push(message[i].split('')[4]);
+      break;
+    default:
+      result.push(' ');
     }
   }
   console.log(result.join(''));
 }
 
-decodeWords(cipher);
+//decodeWords(cipher);
+
+function createCharacter(name, nickName, race, origin, attack, defense,weapon) {
+  return {
+    name, nickName, race, origin,attack,defense,weapon,
+    describe: function () {
+      return `${this.name} is a ${this.race} from ${this.origin}`;
+    },
+    evaluateFight: function(charcter) {
+      let receiveDamage = this.attack > charcter.defense ? this.attack - charcter.defense : 0;
+      let takeDamage = charcter.attack > this.defense ? charcter.attack - this.defense : 0;
+      return `Your opponent takes ${takeDamage} damage and you receive ${receiveDamage} damage`;
+    },
+    describeWeapon: function() {
+      return `${this.describe()} ${this.weapon} `;
+    }
+  };
+}
+
+const gandalf = createCharacter('Gandalf the White','gandalf','Wizard','Middle Earth', 10, 6,'wizard staff');
+const bilbo = createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2,1,'Ring');
+const frodo = createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3,2,'Barrow Blade');
+const aragon = createCharacter('Aragon son of Arathorn', 'aragon', 'Man', 'Dunnedian', 6,8, 'Bow and Arrow');
+const legolas = createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8,2,'Hadhafang');
+
+gandalf.describe();
+console.log(gandalf.evaluateFight(bilbo));
+
+let charcters = [
+  gandalf,bilbo,frodo,aragon,legolas
+];
+
+const arwen = createCharacter('Arwn Undomiel', 'arwen', 'Hlaf-elf', 'Rivendell', 3,7);
+
+function findAragon(charcters) {
+  charcters.find(function(el) {
+    if(el.nickName === 'aragon') {
+      aragon.describe();
+    }
+  });
+}
+
+function findHobbit(charcters) {
+  return charcters.filter( (el) =>  el.race === 'Hobbit');
+}
+
+function findAttack(charcters) {
+  return charcters.filter( (el) => el.attack >5);
+}
+
+findAragon(charcters);
+//console.log(findHobbit(charcters));
+console.log(findAttack(charcters));
+console.log(charcters[2].describeWeapon());
