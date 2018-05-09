@@ -14,4 +14,18 @@ function createMyObject() {
   return obj;
 }
 
-console.log(createMyObject());
+// console.log(createMyObject());
+
+function updateObject(obj)
+{
+  obj.foo = 'foo';
+  obj.bar = 'bar';
+  obj.bizz = 'bizz';
+  obj.bang = 'bang';
+
+  return obj;
+}
+
+let oldObj = { color: 'green', foo: 'adfasdf'};
+
+// console.log(updateObject(oldObj));
